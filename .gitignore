@@ -1,0 +1,7 @@
+# local tf files
+.terraform/
+*.tfstate
+*.backup
+*.hcl
+variables.tf
+*.svg
