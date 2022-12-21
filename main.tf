@@ -122,10 +122,17 @@ resource "azurerm_virtual_machine" "azure_vm" {
     computer_name  = var.hostname
     admin_username = var.admin_username
     admin_password = var.admin_password
-    custom_data    = file("user-data.sh")
   }
 
   os_profile_linux_config {
-    disable_password_authentication = false
+    disable_password_authentication = true
+    ssh_keys {
+      path     = "/home/${var.admin_username}/.ssh/authorized_keys"
+      key_data = file("~/.ssh/id_rsa.pub")
+    }
+  }
+
+  provisioner "local-exec" {
+    command = "ansible-playbook -u ${var.admin_username} -i ${var.hostname}.${var.location}.cloudapp.azure.com, --private-key ~/.ssh/id_rsa ansible-playbook-apache.yml"
   }
 }
