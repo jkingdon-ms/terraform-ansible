@@ -131,8 +131,12 @@ resource "azurerm_virtual_machine" "azure_vm" {
       key_data = file("~/.ssh/id_rsa.pub")
     }
   }
+}
 
-  provisioner "local-exec" {
-    command = "ansible-playbook -u ${var.admin_username} -i ${var.hostname}.${var.location}.cloudapp.azure.com, --private-key ~/.ssh/id_rsa ansible-playbook-apache.yml"
-  }
+output "admin_username" {
+  value = var.admin_username
+}
+
+output "host" {
+  value = "${var.hostname}.${var.location}.cloudapp.azure.com"
 }
