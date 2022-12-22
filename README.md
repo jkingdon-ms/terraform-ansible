@@ -7,7 +7,7 @@ Ansible is a server configuration tool and is more geared towards staging server
 
 Idempotence is the default behavior of both tools.
 
-# How Ansible + Terraform can work
+# How Terraform + Ansible can work
 ## Ansible within Terraform
 - Ansible can run within Terraform VM provisioner
     - Pro: easy to setup
