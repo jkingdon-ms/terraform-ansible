@@ -14,16 +14,15 @@ This script will run the terraform apply command, followed by the Ansible playbo
 
 # How Terraform + Ansible can work
 ## Ansible within Terraform
-### Ansible within TF Provisioner
 - Pro: easy to setup
 - Cons
     - Terraform cannot model the actions of provisioners as part of a plan because they can in principle take any action
     - Successful use of provisioners requires coordinating many more details than Terraform usage usually requires
     - Will not recognize underlying changes required (i.e. playbook changes if running ansible-playbook)
-    - Provisioners are considered a [last resort](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax
-) even by Hashicorp 
-### Terraform output as Ansible input
-This is what I think is the most fitting use case for Terraform + Ansible as it best takes advantage of the respective strengths of each tool
+
+Terraform provisioners are considered a [last resort](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax) even by Hashicorp.    
+## Terraform alongside Ansible
+This is what I think is the most fitting use case for Terraform + Ansible as it best takes advantage of the respective strengths of each tool.
 - Pros
     - Separation of concerns enables scalability
     - Easier to manage with tools originally intended usage patterns
