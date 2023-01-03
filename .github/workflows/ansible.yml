@@ -26,5 +26,5 @@ jobs:
           # Optional, additional flags to pass to ansible-playbook
           options: |
             -u jkingdon
-            -i jkingdon-webserver-vm.eastus.cloudapp.azure.com
+            -i jkingdon-webserver-vm.eastus.cloudapp.azure.com,
             -v
