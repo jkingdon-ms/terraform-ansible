@@ -7,15 +7,15 @@ terraform {
     }
   }
   required_version = ">= 1.1.0"
-  # backend "remote" {
-  #   # The name of your Terraform Cloud organization.
-  #   organization = "jkingdon-ms-tfcloud-org"
+  backend "remote" {
+    # The name of your Terraform Cloud organization.
+    organization = "jkingdon-ms-tfcloud-org"
 
-  #   # The name of the Terraform Cloud workspace to store Terraform state files in.
-  #   workspaces {
-  #     name = "jkingdon-ms-tfcloud-ws"
-  #   }
-  # }  
+    # The name of the Terraform Cloud workspace to store Terraform state files in.
+    workspaces {
+      name = "jkingdon-ms-tfcloud-ws"
+    }
+  }  
 }
 
 provider "azurerm" {
@@ -135,7 +135,7 @@ resource "azurerm_virtual_machine" "azure_vm" {
     disable_password_authentication = true
     ssh_keys {
       path     = "/home/${var.admin_username}/.ssh/authorized_keys"
-      key_data = file("~/.ssh/id_rsa.pub")
+      key_data = var.public_key
     }
   }
 }

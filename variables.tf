@@ -62,3 +62,7 @@ variable "admin_username" {
   type    = string
   default = "jkingdon"
 }
+
+variable "public_key" {
+  type    = string
+}
