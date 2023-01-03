@@ -64,5 +64,5 @@ variable "admin_username" {
 }
 
 variable "public_key" {
-  type    = string
+  type = string
 }

@@ -15,7 +15,7 @@ terraform {
     workspaces {
       name = "jkingdon-ms-tfcloud-ws"
     }
-  }  
+  }
 }
 
 provider "azurerm" {
