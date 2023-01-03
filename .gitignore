@@ -3,5 +3,4 @@
 *.tfstate
 *.backup
 *.hcl
-variables.tf
 *.svg
