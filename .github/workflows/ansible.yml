@@ -1,0 +1,29 @@
+name: 'Ansible'
+
+on:
+  push
+
+permissions:
+  contents: read
+
+jobs:
+  ansible:
+    name: 'Ansible'
+    runs-on: ubuntu-latest
+    needs: terraform
+
+    steps:
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          # Optional, directory where playbooks live
+          directory: ansible
+          # Required, playbook filepath
+          playbook: playbook.yml
+          # Optional, SSH private key
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # Optional, additional flags to pass to ansible-playbook
+          options: |
+            -u jkingdon
+            -i jkingdon-webserver-vm.eastus.cloudapp.azure.com
+            -v
