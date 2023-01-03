@@ -27,4 +27,3 @@ jobs:
           options: |
             -u jkingdon
             -i jkingdon-webserver-vm.eastus.cloudapp.azure.com,
-            -v
