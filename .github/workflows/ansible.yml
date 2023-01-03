@@ -24,7 +24,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           inventory: |
             [all]
-            jkingdon-webserver-vm.eastus.cloudapp.azure.com                    
+            jkingdon-webserver-vm.eastus.cloudapp.azure.com
+          # Optional, SSH known hosts file content
+          known_hosts: .known_hosts                     
           # Optional, additional flags to pass to ansible-playbook
           options: |
             -u jkingdon
