@@ -109,3 +109,4 @@ jobs:
         options: |
           -u `terraform output admin_username`
           -i `terraform output host`
+          -v
