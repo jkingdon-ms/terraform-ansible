@@ -104,9 +104,9 @@ jobs:
         # Required, playbook filepath
         playbook: ansible-playbook.yml
         # Optional, SSH private key
-        key: ${{secrets.SSH_PRIVATE_KEY}}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
       # Optional, additional flags to pass to ansible-playbook
         options: |
-          -u `terraform output admin_username`
-          -i `terraform output host`
+          -u jkingdon
+          -i jkingdon-webserver-vm.eastus.cloudapp.azure.com
           -v
