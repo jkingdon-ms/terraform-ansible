@@ -10,8 +10,7 @@ jobs:
   ansible:
     name: 'Ansible'
     runs-on: ubuntu-latest
-    needs: terraform
-
+    
     steps:
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
