@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      admin_username: ${terraform output admin_username}
+      admin_username: ${{ terraform output admin_username }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
