@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 env:
-  ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}  
+  PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  
 
 jobs:
   ansible:
@@ -19,7 +19,7 @@ jobs:
 
       - shell: bash
         run: |
-          echo $ssh_private_key > /tmp/id_rsa
+          echo $PRIVATE_KEY > /tmp/id_rsa
           sudo chmod 600 /tmp/id_rsa          
           ansible-playbook -u jkingdon -i jkingdon-webserver-vm.eastus.cloudapp.azure.com, --private-key /tmp/id_rsa playbook.yml
           rm /tmp/id_rsa
