@@ -76,6 +76,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1        
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+          terraform_wrapper: false
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
@@ -96,7 +97,7 @@ jobs:
         # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
         run: |
           terraform apply -auto-approve -input=false
-          echo "admin_username=jkingdon" >> $GITHUB_OUTPUT
+          echo "admin_username=$(terraform output admin_username)" >> $GITHUB_OUTPUT
        
   ansible:
     name: 'Ansible'
