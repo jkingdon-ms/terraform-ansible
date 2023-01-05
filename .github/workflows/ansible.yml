@@ -17,7 +17,7 @@ jobs:
       - shell: bash
         run: |
           ${{ secrets.AZURE_CREDENTIALS }} > /tmp/id_rsa
-          sudo chmod 777 /tmp/id_rsa          
+          sudo chmod 600 /tmp/id_rsa          
           ansible-playbook -u jkingdon -i jkingdon-webserver-vm.eastus.cloudapp.azure.com, --private-key /tmp/id_rsa playbook.yml
           rm /tmp/id_rsa
 
