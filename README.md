@@ -1,16 +1,7 @@
 # Overview
-This project aims to demonstrate a basic example of how Terraform and Ansible can be used together in the best ways to maximally leverage the respective tools' capabilities.
+This project aims to demonstrate a basic example of how Terraform and Ansible can be used together in the best ways to maximally leverage the respective tools' capabilities, orchestrated by Github Actions.
 
-Terraform and Ansible can both be used independently to deploy and provision cloud resources, though they excel at different things. Terraform is an IaC tool and is more geared towards deploying infrastructure across different cloud providers. Ansible is a server configuration tool and is more geared towards staging servers with fine-grained control. Importantly, idempotence is the default behavior of both tools.
-
-# How to Run
-Open your terminal and run
-
-`bash manual-run.sh`
-
-in the root of the project.
-
-This script will run the terraform apply command, followed by the Ansible playbook command, an example of the 'Terraform alongside Ansible' approach. 
+Terraform and Ansible can both be used independently to deploy and provision cloud resources, though they excel at different things. Terraform is an IaC tool and is more geared towards deploying infrastructure across different cloud providers. Ansible is a server configuration tool and is more geared towards staging servers with fine-grained control.
 
 # How Terraform + Ansible can work
 ## Terraform calling Ansible
