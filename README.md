@@ -7,6 +7,8 @@ Terraform and Ansible can both be used independently to deploy and provision clo
 ## Terraform calling Ansible
 Terraform's provisioner can be used to execute ansible commands, such as executing a playbook to configure the servers after deployment.
 
+Check out the [release](https://github.com/jkingdon-ms/terraform-ansible/releases/tag/0.0.2) that demonstrates this approach for more details.
+
 - Pros
     - easy to setup
 - Cons
