@@ -58,6 +58,9 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
 
+    outputs:
+      admin_username: ${{ terraform output admin_username }}
+
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
@@ -114,4 +117,4 @@ jobs:
               jkingdon-webserver-vm.eastus.cloudapp.azure.com                     
             # Optional, additional flags to pass to ansible-playbook
             options: |
-              -u jkingdon
+              -u ${{needs.terraform.outputs.admin_username}}
