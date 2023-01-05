@@ -53,6 +53,9 @@ on:
 permissions:
   contents: read
 
+outputs:
+  admin_username: ${{ steps.tfapply.outputs.admin_username }}  
+
 jobs:
   terraform:
     name: 'Terraform'
@@ -115,4 +118,4 @@ jobs:
               jkingdon-webserver-vm.eastus.cloudapp.azure.com                     
             # Optional, additional flags to pass to ansible-playbook
             options: |
-              -u ${{needs.terraform.steps.tfapply.outputs.admin_username}}
+              -u ${{needs.terraform.outputs.admin_username}}
