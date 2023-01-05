@@ -7,7 +7,7 @@ Terraform and Ansible can both be used independently to deploy and provision clo
 ## Terraform calling Ansible
 Terraform's provisioner can be used to execute ansible commands, such as executing a playbook to configure the servers after deployment.
 
-Check out the [release](https://github.com/jkingdon-ms/terraform-ansible/releases/tag/0.0.2) that demonstrates this approach for more details.
+Check out the [release](https://github.com/jkingdon-ms/terraform-ansible/releases/tag/0.0.2) that focuses on this approach for more details.
 
 - Pros
     - easy to setup
@@ -26,6 +26,8 @@ Ansible can orchestrate Terraform to be executed as part of a larger workflow, u
     - Terraform functionality only as up-to-date as its Ansible Terraform module, may not have all Terraform features
 ## Terraform alongside Ansible
 Terraform deploys infrastructure, then Ansible configures the deployed servers as a separate step.
+
+Check out the [release](https://github.com/jkingdon-ms/terraform-ansible/releases/tag/0.0.3) that focuses on this approach for more details.
 
 - Pros
     - Separation of concerns empowers scalability
