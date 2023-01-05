@@ -94,7 +94,9 @@ jobs:
       - id: tfapply
         name: Terraform Apply
         if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
-        run: terraform apply -auto-approve -input=false
+        run: |
+          terraform apply -auto-approve -input=false
+          echo "admin_username=jkingdon" >> $GITHUB_OUTPUT
        
   ansible:
     name: 'Ansible'
