@@ -13,13 +13,17 @@ terraform {
 
     # The name of the Terraform Cloud workspace to store Terraform state files in.
     workspaces {
-      name = "jkingdon-ms-tfcloud-ws"
+      name = "jkingdon-ms-tfcloud-ws-cli"
     }
   }
 }
 
 provider "azurerm" {
-  features {}
+  features {
+    resource_group {
+      prevent_deletion_if_contains_resources = false
+    }
+  }
 }
 
 #Create azure resource group
