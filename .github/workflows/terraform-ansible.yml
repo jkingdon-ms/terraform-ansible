@@ -99,7 +99,7 @@ jobs:
         run: |
           terraform apply -auto-approve -input=false
           echo "admin_username=$(terraform output admin_username)" >> $GITHUB_OUTPUT
-          echo "admin_username=$(terraform output host)" >> $GITHUB_OUTPUT
+          echo "host=$(terraform output host)" >> $GITHUB_OUTPUT
        
   ansible:
     name: 'Ansible'
