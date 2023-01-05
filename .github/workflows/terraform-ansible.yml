@@ -60,6 +60,7 @@ jobs:
 
     outputs:
       admin_username: ${{ steps.tfapply.outputs.admin_username }}
+      host: ${{ steps.tfapply.outputs.host }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -98,6 +99,7 @@ jobs:
         run: |
           terraform apply -auto-approve -input=false
           echo "admin_username=$(terraform output admin_username)" >> $GITHUB_OUTPUT
+          echo "admin_username=$(terraform output host)" >> $GITHUB_OUTPUT
        
   ansible:
     name: 'Ansible'
@@ -118,7 +120,7 @@ jobs:
             key: ${{ secrets.SSH_PRIVATE_KEY }}
             inventory: |
               [all]
-              jkingdon-webserver-vm.eastus.cloudapp.azure.com                     
+              ${{needs.terraform.outputs.host}}                     
             # Optional, additional flags to pass to ansible-playbook
             options: |
               -u ${{needs.terraform.outputs.admin_username}}
