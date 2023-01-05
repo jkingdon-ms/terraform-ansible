@@ -73,7 +73,6 @@ jobs:
         uses: hashicorp/setup-terraform@v1        
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-          terraform_wrapper: false        
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
@@ -116,4 +115,4 @@ jobs:
               jkingdon-webserver-vm.eastus.cloudapp.azure.com                     
             # Optional, additional flags to pass to ansible-playbook
             options: |
-              -u ${{steps.tfapply.outputs.admin_username}}
+              -u ${{needs.terraform.steps.tfapply.outputs.admin_username}}
