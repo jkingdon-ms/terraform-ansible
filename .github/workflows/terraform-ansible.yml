@@ -53,13 +53,13 @@ on:
 permissions:
   contents: read
 
-outputs:
-  admin_username: ${{ steps.tfapply.outputs.admin_username }}  
-
 jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
+
+    outputs:
+      admin_username: ${{ steps.tfapply.outputs.admin_username }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
